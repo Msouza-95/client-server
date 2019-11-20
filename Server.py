@@ -18,7 +18,9 @@ while 1:
     print ('conectado com: ' )
     print (cliente)
     print ("aguardando mensagem" )
-    recebe = con.recv(1024) 
-    print('recebido: '+recebe.decode('utf-8'))
+    requisicao = con.recv(1024) 
+    print('recebido: '+requisicao.decode('utf-8'))
+    resposta = requisicao[::-1]
+    con.send(resposta)
     #webbrowser.open_new(recebe)
 serv_socket.close() 
